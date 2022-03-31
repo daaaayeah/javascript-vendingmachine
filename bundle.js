@@ -672,9 +672,12 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "handleProductModifyButtonClick", function ($tbodyRow) {
-      _this.makeProductInfoModifiable($tbodyRow);
-
-      _this.setEventForProductModify($tbodyRow);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$$)('.product-td', $tbodyRow).forEach(function (td) {
+        return td.setAttribute('hidden', true);
+      });
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$$)('.product-modify-td', $tbodyRow).forEach(function (td) {
+        return td.removeAttribute('hidden');
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleProductModifyEnter", function (event, $tbodyRow) {
@@ -734,25 +737,30 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
                 newProductInfo = detail.newProductInfo;
             var $tbodyRow = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(oldProductName, "\"]"));
             $tbodyRow.dataset.productName = newProductInfo.name;
-            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-td', $tbodyRow).textContent = newProductInfo.name;
-            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-td', $tbodyRow).textContent = newProductInfo.price;
-            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-td', $tbodyRow).textContent = newProductInfo.quantity;
-            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-manage-buttons-td', $tbodyRow).innerHTML = "\n          <button class=\"table__product-modify-button\">\uC218\uC815</button>\n          <button class=\"table__product-delete-button\">\uC0AD\uC81C</button>\n        ";
-            this.setEventAfterRerender(newProductInfo);
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$$)('.product-td', $tbodyRow).forEach(function (td) {
+              return td.removeAttribute('hidden');
+            });
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$$)('.product-modify-td', $tbodyRow).forEach(function (td) {
+              return td.setAttribute('hidden', true);
+            });
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-td.product-name-td', $tbodyRow).textContent = newProductInfo.name;
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-td.product-price-td', $tbodyRow).textContent = newProductInfo.price;
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-td.product-quantity-td', $tbodyRow).textContent = newProductInfo.quantity;
             break;
           }
 
         case _domains_actions__WEBPACK_IMPORTED_MODULE_1__.PRODUCT_ACTION.DELETE:
           (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(detail, "\"]")).remove();
       }
-    }
+    } // eslint-disable-next-line max-lines-per-function
+
   }, {
     key: "tableBodyRowTemplate",
     value: function tableBodyRowTemplate(_ref2) {
       var name = _ref2.name,
           price = _ref2.price,
           quantity = _ref2.quantity;
-      return " \n      <tr data-product-name=\"".concat(name, "\">\n        <td class=\"product-name-td\">").concat(name, "</td> \n        <td class=\"product-price-td\">").concat(price, "</td>\n        <td class=\"product-quantity-td\">").concat(quantity, "</td>\n        <td class=\"product-manage-buttons-td\">\n          <button class=\"table__product-modify-button\">\uC218\uC815</button>\n          <button class=\"table__product-delete-button\">\uC0AD\uC81C</button>\n        </td>\n      </tr>\n    ");
+      return " \n      <tr data-product-name=\"".concat(name, "\">\n        <td class=\"product-td product-name-td\">").concat(name, "</td>\n        <td class=\"product-modify-td product-name-td\" hidden>\n          <input class=\"product-name-input\" placeholder=\"\uC0C1\uD488\uBA85\" value=\"").concat(name, "\" maxlength=\"10\" required>\n        </td>\n\n        <td class=\"product-td product-price-td\">").concat(price, "</td>\n        <td class=\"product-modify-td product-price-td\" hidden>\n          <input type=\"number\" class=\"product-price-input\" placeholder=\"\uAC00\uACA9\" value=\"").concat(price, "\" min=\"100\" max=\"10000\" required>\n        </td>\n      \n        <td class=\"product-td product-quantity-td\">").concat(quantity, "</td>\n        <td class=\"product-modify-td product-quantity-td\" hidden>\n          <input type=\"number\" class=\"product-quantity-input\" placeholder=\"\uC218\uB7C9\" value=\"").concat(quantity, "\" min=\"1\" max=\"20\" required>\n        </td>\n\n        <td class=\"product-td product-manage-buttons-td\">\n          <button class=\"table__product-modify-button\">\uC218\uC815</button>\n          <button class=\"table__product-delete-button\">\uC0AD\uC81C</button>\n        </td>\n        <td class=\"product-modify-td product-manage-buttons-td\" hidden>\n          <button class=\"table__product-modify-confirm-button\">\uD655\uC778</button>\n        </td>\n      </tr>\n    ");
     }
   }, {
     key: "setEventAfterRerender",
@@ -768,31 +776,13 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
       (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-delete-button', $tbodyRow).addEventListener('click', function () {
         return _this2.handleProductDeleteButtonClick(name);
       });
-    }
-  }, {
-    key: "makeProductInfoModifiable",
-    value: function makeProductInfoModifiable($tbodyRow) {
-      var $productNameTd = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-td', $tbodyRow);
-      $productNameTd.innerHTML = "<input class=\"product-name-input\" placeholder=\"\uC0C1\uD488\uBA85\" value=\"".concat($productNameTd.textContent, "\" maxlength=\"10\" required>");
-      var $productPriceTd = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-td', $tbodyRow);
-      $productPriceTd.innerHTML = "<input type=\"number\" class=\"product-price-input\" placeholder=\"\uAC00\uACA9\" value=\"".concat($productPriceTd.textContent, "\" min=\"100\" max=\"10000\" required>");
-      var $productQuantityTd = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-td', $tbodyRow);
-      $productQuantityTd.innerHTML = "<input type=\"number\" class=\"product-quantity-input\" placeholder=\"\uC218\uB7C9\" value=\"".concat($productQuantityTd.textContent, "\" min=\"1\" max=\"20\" required>");
-      var $productManageButtonsTd = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-manage-buttons-td', $tbodyRow);
-      $productManageButtonsTd.innerHTML = "<button class=\"table__product-modify-confirm-button\">\uD655\uC778</button>";
-    }
-  }, {
-    key: "setEventForProductModify",
-    value: function setEventForProductModify($tbodyRow) {
-      var _this3 = this;
-
-      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$$)('input', $tbodyRow).forEach(function (input) {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$$)('.product-modify-td input', $tbodyRow).forEach(function (input) {
         return input.addEventListener('keydown', function (event) {
-          return _this3.handleProductModifyEnter(event, $tbodyRow);
+          return _this2.handleProductModifyEnter(event, $tbodyRow);
         });
       });
-      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-modify-confirm-button', $tbodyRow).addEventListener('click', function () {
-        return _this3.handleProductModifyConfirmButtonClick($tbodyRow);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-modify-td .table__product-modify-confirm-button', $tbodyRow).addEventListener('click', function () {
+        return _this2.handleProductModifyConfirmButtonClick($tbodyRow);
       });
     }
   }, {
@@ -1942,9 +1932,7 @@ class ProductStore {
         return __classPrivateFieldGet(this, _ProductStore_products, "f").findIndex((product) => product.name === productName);
     }
     notifySubscribers(action) {
-        __classPrivateFieldGet(this, _ProductStore_subscribers, "f").forEach((subscriber) => {
-            subscriber.rerender(action);
-        });
+        __classPrivateFieldGet(this, _ProductStore_subscribers, "f").forEach((subscriber) => subscriber.rerender(action));
     }
     get products() {
         return __classPrivateFieldGet(this, _ProductStore_products, "f");
