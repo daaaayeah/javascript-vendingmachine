@@ -899,57 +899,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
 
 
-var $productManageButton = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__product-manage-button');
-var $productManageContainer = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('product-manage-container');
-var $productNameInput = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.product-name-input');
-var $coinChargeButton = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__coin-charge-button');
-var $coinChargeContainer = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('coin-charge-container');
-var $coinInput = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('#coin-input');
+var targets = [{
+  route: "".concat(_constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "/"),
+  $button: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__product-manage-button'),
+  $container: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('product-manage-container'),
+  $focusInput: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.product-name-input')
+}, {
+  route: "".concat(_constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "/coin-charge/"),
+  $button: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__coin-charge-button'),
+  $container: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('coin-charge-container'),
+  $focusInput: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('#coin-input')
+}];
 
-var renderProductManageContainer = function renderProductManageContainer() {
-  $productManageContainer.show();
-  $coinChargeContainer.hide();
-  $productManageButton.classList.add('clicked');
-  $coinChargeButton.classList.remove('clicked');
-  $productNameInput.focus();
+var findTarget = function findTarget(route) {
+  return targets.find(function (target) {
+    return target.route === route;
+  });
 };
 
-var handleProductManageButtonClick = function handleProductManageButtonClick(event) {
-  if (!$productManageContainer.getAttribute('hidden')) return;
-  var route = event.target.getAttribute('route');
-  window.history.pushState({}, null, route);
-  renderProductManageContainer();
+var render = function render(currentTarget, prevTarget) {
+  currentTarget.$button.classList.add('clicked');
+  currentTarget.$container.show();
+  currentTarget.$focusInput.focus();
+  if (!prevTarget) return;
+  prevTarget.$button.classList.remove('clicked');
+  prevTarget.$container.hide();
 };
 
-var renderCoinChargeContainer = function renderCoinChargeContainer() {
-  $productManageContainer.hide();
-  $coinChargeContainer.show();
-  $productManageButton.classList.remove('clicked');
-  $coinChargeButton.classList.add('clicked');
-  $coinInput.focus();
+var handleAdministratorMenuClick = function handleAdministratorMenuClick(event) {
+  var currentRoute = event.target.getAttribute('route');
+  var currentTarget = findTarget(currentRoute);
+  var prevTarget = findTarget(window.location.pathname);
+  if (currentTarget.$button.classList.contains('clicked')) return;
+  window.history.pushState({
+    prevRoute: window.location.pathname
+  }, null, currentRoute);
+  render(currentTarget, prevTarget);
 };
 
-var handleCoinChargeButtonClick = function handleCoinChargeButtonClick(event) {
-  if (!$coinChargeContainer.getAttribute('hidden')) return;
-  var route = event.target.getAttribute('route');
-  window.history.pushState({}, null, route);
-  renderCoinChargeContainer();
-};
-
-var renderTargetContainer = function renderTargetContainer(path) {
-  if (path === "".concat(_constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "/")) {
-    renderProductManageContainer();
-    return;
-  }
-
-  renderCoinChargeContainer();
-};
-
-renderTargetContainer(window.location.pathname);
-$productManageButton.addEventListener('click', handleProductManageButtonClick);
-$coinChargeButton.addEventListener('click', handleCoinChargeButtonClick);
-window.addEventListener('popstate', function () {
-  renderTargetContainer(window.location.pathname);
+render(findTarget(window.location.pathname));
+(0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('nav', (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('administrator-menu')).addEventListener('click', handleAdministratorMenuClick);
+window.addEventListener('popstate', function (event) {
+  var currentTarget = findTarget(window.location.pathname);
+  var prevTarget = findTarget(event.state.prevRoute);
+  render(currentTarget, prevTarget);
 });
 
 /***/ }),
