@@ -915,6 +915,7 @@ var renderProductManageContainer = function renderProductManageContainer() {
 };
 
 var handleProductManageButtonClick = function handleProductManageButtonClick(event) {
+  if (!$productManageContainer.getAttribute('hidden')) return;
   var route = event.target.getAttribute('route');
   window.history.pushState({}, null, route);
   renderProductManageContainer();
@@ -929,6 +930,7 @@ var renderCoinChargeContainer = function renderCoinChargeContainer() {
 };
 
 var handleCoinChargeButtonClick = function handleCoinChargeButtonClick(event) {
+  if (!$coinChargeContainer.getAttribute('hidden')) return;
   var route = event.target.getAttribute('route');
   window.history.pushState({}, null, route);
   renderCoinChargeContainer();
