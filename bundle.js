@@ -102,6 +102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "CONFIRM_MESSAGE": () => (/* binding */ CONFIRM_MESSAGE),
 /* harmony export */   "ERROR_MESSAGE": () => (/* binding */ ERROR_MESSAGE)
 /* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/utils.js");
+
 var BASE_URL = '/javascript-vendingmachine';
 var COIN = {
   DEFAULT_COUNT: 0
@@ -133,13 +135,13 @@ var ERROR_MESSAGE = {
   IS_ALREADY_EXIST_PRODUCT_WHEN_MODIFY: '이미 존재하는 상품입니다! 다른 상품명을 입력해 주세요!',
   IS_NOT_INTEGER_PRICE: '가격에 정수가 입력되지 않았습니다! 정수를 입력해 주세요!',
   IS_UNDER_MIN_PRICE: "\uAC00\uACA9\uC774 \uCD5C\uC18C \uAC00\uACA9\uC778 ".concat(PRODUCT.PRICE.MIN, "\uC6D0 \uBBF8\uB9CC\uC73C\uB85C \uC785\uB825\uB418\uC5C8\uC2B5\uB2C8\uB2E4! ").concat(PRODUCT.PRICE.MIN, "\uC6D0 \uC774\uC0C1\uC73C\uB85C \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
-  IS_OVER_MAX_PRICE: "\uAC00\uACA9\uC774 \uCD5C\uB300 \uAC00\uACA9\uC778 ".concat(PRODUCT.PRICE.MAX.toLocaleString(), "\uC6D0\uC744 \uCD08\uACFC\uD558\uC5EC \uC785\uB825\uB418\uC5C8\uC2B5\uB2C8\uB2E4! ").concat(PRODUCT.PRICE.MAX.toLocaleString(), "\uC6D0 \uC774\uD558\uB85C \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
+  IS_OVER_MAX_PRICE: "\uAC00\uACA9\uC774 \uCD5C\uB300 \uAC00\uACA9\uC778 ".concat((0,_utils__WEBPACK_IMPORTED_MODULE_0__.addThousandUnitsComma)(PRODUCT.PRICE.MAX), "\uC6D0\uC744 \uCD08\uACFC\uD558\uC5EC \uC785\uB825\uB418\uC5C8\uC2B5\uB2C8\uB2E4! ").concat(PRODUCT.PRICE.MAX.toLocaleString(), "\uC6D0 \uC774\uD558\uB85C \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
   PRICE_CANNOT_DIVIDED_BY_TEN: '가격에 1원 단위가 입력되었습니다! 10원 단위로 입력해 주세요!',
   IS_NOT_INTEGER_QUANTITY: '수량에 정수가 입력되지 않았습니다! 정수를 입력해 주세요!',
   IS_UNDER_MIN_QUANTITY: "\uC218\uB7C9\uC774 \uCD5C\uC18C \uC218\uB7C9\uC778 ".concat(PRODUCT.QUANTITY.MIN, "\uAC1C \uBBF8\uB9CC\uC73C\uB85C \uC785\uB825\uB418\uC5C8\uC2B5\uB2C8\uB2E4! ").concat(PRODUCT.QUANTITY.MIN, "\uAC1C \uC774\uC0C1\uC73C\uB85C \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
   IS_OVER_MAX_QUANTITY: "\uC218\uB7C9\uC774 \uCD5C\uB300 \uC218\uB7C9\uC778 ".concat(PRODUCT.QUANTITY.MAX, "\uAC1C\uB97C \uCD08\uACFC\uD558\uC5EC \uC785\uB825\uB418\uC5C8\uC2B5\uB2C8\uB2E4! ").concat(PRODUCT.QUANTITY.MAX, "\uAC1C \uC774\uD558\uB85C \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
   MONEY_CANNOT_DIVIDED_BY_TEN: '금액에 1원 단위가 입력되었습니다! 10원 단위로 입력해 주세요!',
-  IS_OVER_MAX_MONEY: "\uD604\uC7AC \uBCF4\uC720 \uAE08\uC561\uC774 \uCD5C\uB300 \uBCF4\uC720 \uAC00\uB2A5 \uAE08\uC561\uC778 ".concat(MONEY.MAX.toLocaleString(), "\uC6D0\uC744 \uCD08\uACFC\uD558\uC600\uC2B5\uB2C8\uB2E4! \uD604\uC7AC \uBCF4\uC720 \uAE08\uC561\uC744 \uD655\uC778\uD55C \uD6C4 \uC785\uB825\uD574 \uC8FC\uC138\uC694!")
+  IS_OVER_MAX_MONEY: "\uD604\uC7AC \uBCF4\uC720 \uAE08\uC561\uC774 \uCD5C\uB300 \uBCF4\uC720 \uAC00\uB2A5 \uAE08\uC561\uC778 ".concat((0,_utils__WEBPACK_IMPORTED_MODULE_0__.addThousandUnitsComma)(MONEY.MAX), "\uC6D0\uC744 \uCD08\uACFC\uD558\uC600\uC2B5\uB2C8\uB2E4! \uD604\uC7AC \uBCF4\uC720 \uAE08\uC561\uC744 \uD655\uC778\uD55C \uD6C4 \uC785\uB825\uD574 \uC8FC\uC138\uC694!")
 };
 
 /***/ }),
@@ -285,7 +287,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _domains_stores_CoinStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../domains/stores/CoinStore */ "./src/domains/stores/CoinStore.ts");
 /* harmony import */ var _domains_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../domains/actions */ "./src/domains/actions.ts");
 /* harmony import */ var _abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../abstracts/CustomElement */ "./src/abstracts/CustomElement.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/dom */ "./src/utils/dom.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 /* harmony import */ var _validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../validators */ "./src/validators.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -339,7 +341,7 @@ var CoinChargeForm = /*#__PURE__*/function (_CustomElement) {
 
     _defineProperty(_assertThisInitialized(_this), "handleCoinChargeFormSubmit", function (event) {
       event.preventDefault();
-      var $coinInput = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('#coin-input');
+      var $coinInput = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('#coin-input');
       var coinInputValue = $coinInput.valueAsNumber;
 
       try {
@@ -369,7 +371,7 @@ var CoinChargeForm = /*#__PURE__*/function (_CustomElement) {
   }, {
     key: "setEvent",
     value: function setEvent() {
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.coin-charge-form').addEventListener('submit', this.handleCoinChargeFormSubmit);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.coin-charge-form').addEventListener('submit', this.handleCoinChargeFormSubmit);
     }
   }, {
     key: "chargeCoin",
@@ -387,7 +389,7 @@ var CoinChargeForm = /*#__PURE__*/function (_CustomElement) {
   }, {
     key: "rerender",
     value: function rerender(newMoney) {
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.money').textContent = newMoney;
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.money').textContent = newMoney;
     }
   }]);
 
@@ -411,7 +413,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _domains_stores_CoinStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../domains/stores/CoinStore */ "./src/domains/stores/CoinStore.ts");
 /* harmony import */ var _abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../abstracts/CustomElement */ "./src/abstracts/CustomElement.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/dom */ "./src/utils/dom.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -469,10 +471,10 @@ var CoinCurrentSituation = /*#__PURE__*/function (_CustomElement) {
   }, {
     key: "rerender",
     value: function rerender(newCoinsCount) {
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.$)('.coin-500-count-td').textContent = "".concat(newCoinsCount[500], "\uAC1C");
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.$)('.coin-100-count-td').textContent = "".concat(newCoinsCount[100], "\uAC1C");
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.$)('.coin-50-count-td').textContent = "".concat(newCoinsCount[50], "\uAC1C");
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.$)('.coin-10-count-td').textContent = "".concat(newCoinsCount[10], "\uAC1C");
+      (0,_utils__WEBPACK_IMPORTED_MODULE_2__.$)('.coin-500-count-td').textContent = "".concat(newCoinsCount[500], "\uAC1C");
+      (0,_utils__WEBPACK_IMPORTED_MODULE_2__.$)('.coin-100-count-td').textContent = "".concat(newCoinsCount[100], "\uAC1C");
+      (0,_utils__WEBPACK_IMPORTED_MODULE_2__.$)('.coin-50-count-td').textContent = "".concat(newCoinsCount[50], "\uAC1C");
+      (0,_utils__WEBPACK_IMPORTED_MODULE_2__.$)('.coin-10-count-td').textContent = "".concat(newCoinsCount[10], "\uAC1C");
     }
   }]);
 
@@ -497,7 +499,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../domains/stores/ProductStore */ "./src/domains/stores/ProductStore.ts");
 /* harmony import */ var _domains_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../domains/actions */ "./src/domains/actions.ts");
 /* harmony import */ var _abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../abstracts/CustomElement */ "./src/abstracts/CustomElement.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/dom */ "./src/utils/dom.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 /* harmony import */ var _validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../validators */ "./src/validators.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -547,9 +549,9 @@ var ProductAddForm = /*#__PURE__*/function (_CustomElement) {
 
     _defineProperty(_assertThisInitialized(_this), "handleProductAddFormSubmit", function (event) {
       event.preventDefault();
-      var $productNameInput = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-input');
-      var $productPriceInput = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-input');
-      var $productQuantityInput = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-input');
+      var $productNameInput = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-input');
+      var $productPriceInput = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-input');
+      var $productQuantityInput = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-input');
       var newProduct = {
         name: $productNameInput.value.trim(),
         price: $productPriceInput.valueAsNumber,
@@ -576,7 +578,7 @@ var ProductAddForm = /*#__PURE__*/function (_CustomElement) {
   }, {
     key: "setEvent",
     value: function setEvent() {
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('product-add-form').addEventListener('submit', this.handleProductAddFormSubmit);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('product-add-form').addEventListener('submit', this.handleProductAddFormSubmit);
     }
   }, {
     key: "addProduct",
@@ -615,7 +617,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../domains/stores/ProductStore */ "./src/domains/stores/ProductStore.ts");
 /* harmony import */ var _domains_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../domains/actions */ "./src/domains/actions.ts");
 /* harmony import */ var _abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../abstracts/CustomElement */ "./src/abstracts/CustomElement.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/dom */ "./src/utils/dom.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 /* harmony import */ var _validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../validators */ "./src/validators.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -722,7 +724,7 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
 
       switch (type) {
         case _domains_actions__WEBPACK_IMPORTED_MODULE_1__.PRODUCT_ACTION.ADD:
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('tbody', (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-current-situation')).insertAdjacentHTML('beforeend', this.tableBodyRowTemplate(detail));
+          (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('tbody', (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-current-situation')).insertAdjacentHTML('beforeend', this.tableBodyRowTemplate(detail));
           this.setEventAfterRerender(detail);
           break;
 
@@ -730,18 +732,18 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
           {
             var oldProductName = detail.oldProductName,
                 newProductInfo = detail.newProductInfo;
-            var $tbodyRow = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(oldProductName, "\"]"));
+            var $tbodyRow = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(oldProductName, "\"]"));
             $tbodyRow.dataset.productName = newProductInfo.name;
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-td', $tbodyRow).textContent = newProductInfo.name;
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-td', $tbodyRow).textContent = newProductInfo.price;
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-td', $tbodyRow).textContent = newProductInfo.quantity;
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-manage-buttons-td', $tbodyRow).innerHTML = "\n          <button class=\"table__product-modify-button\">\uC218\uC815</button>\n          <button class=\"table__product-delete-button\">\uC0AD\uC81C</button>\n        ";
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-td', $tbodyRow).textContent = newProductInfo.name;
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-td', $tbodyRow).textContent = newProductInfo.price;
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-td', $tbodyRow).textContent = newProductInfo.quantity;
+            (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-manage-buttons-td', $tbodyRow).innerHTML = "\n          <button class=\"table__product-modify-button\">\uC218\uC815</button>\n          <button class=\"table__product-delete-button\">\uC0AD\uC81C</button>\n        ";
             this.setEventAfterRerender(newProductInfo);
             break;
           }
 
         case _domains_actions__WEBPACK_IMPORTED_MODULE_1__.PRODUCT_ACTION.DELETE:
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(detail, "\"]")).remove();
+          (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(detail, "\"]")).remove();
       }
     }
   }, {
@@ -758,25 +760,25 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
       var _this2 = this;
 
       var name = _ref3.name;
-      var $tbodyRow = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(name, "\"]"));
+      var $tbodyRow = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(name, "\"]"));
       $tbodyRow.scrollIntoView();
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-modify-button', $tbodyRow).addEventListener('click', function () {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-modify-button', $tbodyRow).addEventListener('click', function () {
         return _this2.handleProductModifyButtonClick($tbodyRow);
       });
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-delete-button', $tbodyRow).addEventListener('click', function () {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-delete-button', $tbodyRow).addEventListener('click', function () {
         return _this2.handleProductDeleteButtonClick(name);
       });
     }
   }, {
     key: "makeProductInfoModifiable",
     value: function makeProductInfoModifiable($tbodyRow) {
-      var $productNameTd = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-td', $tbodyRow);
+      var $productNameTd = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-td', $tbodyRow);
       $productNameTd.innerHTML = "<input class=\"product-name-input\" placeholder=\"\uC0C1\uD488\uBA85\" value=\"".concat($productNameTd.textContent, "\" maxlength=\"10\" required>");
-      var $productPriceTd = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-td', $tbodyRow);
+      var $productPriceTd = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-td', $tbodyRow);
       $productPriceTd.innerHTML = "<input type=\"number\" class=\"product-price-input\" placeholder=\"\uAC00\uACA9\" value=\"".concat($productPriceTd.textContent, "\" min=\"100\" max=\"10000\" required>");
-      var $productQuantityTd = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-td', $tbodyRow);
+      var $productQuantityTd = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-td', $tbodyRow);
       $productQuantityTd.innerHTML = "<input type=\"number\" class=\"product-quantity-input\" placeholder=\"\uC218\uB7C9\" value=\"".concat($productQuantityTd.textContent, "\" min=\"1\" max=\"20\" required>");
-      var $productManageButtonsTd = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-manage-buttons-td', $tbodyRow);
+      var $productManageButtonsTd = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-manage-buttons-td', $tbodyRow);
       $productManageButtonsTd.innerHTML = "<button class=\"table__product-modify-confirm-button\">\uD655\uC778</button>";
     }
   }, {
@@ -784,12 +786,12 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
     value: function setEventForProductModify($tbodyRow) {
       var _this3 = this;
 
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$$)('input', $tbodyRow).forEach(function (input) {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$$)('input', $tbodyRow).forEach(function (input) {
         return input.addEventListener('keydown', function (event) {
           return _this3.handleProductModifyEnter(event, $tbodyRow);
         });
       });
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-modify-confirm-button', $tbodyRow).addEventListener('click', function () {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-modify-confirm-button', $tbodyRow).addEventListener('click', function () {
         return _this3.handleProductModifyConfirmButtonClick($tbodyRow);
       });
     }
@@ -798,9 +800,9 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
     value: function modifyProduct($tbodyRow) {
       var oldProductName = $tbodyRow.dataset.productName;
       var newProductInfo = {
-        name: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-input', $tbodyRow).value,
-        price: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-input', $tbodyRow).valueAsNumber,
-        quantity: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-input', $tbodyRow).valueAsNumber
+        name: (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-name-input', $tbodyRow).value,
+        price: (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-price-input', $tbodyRow).valueAsNumber,
+        quantity: (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-quantity-input', $tbodyRow).valueAsNumber
       };
 
       if (oldProductName !== newProductInfo.name) {
@@ -895,20 +897,20 @@ customElements.define('product-manage-container', ProductManageContainer);
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/dom */ "./src/utils/dom.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/utils.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
 
 
 var targets = [{
   route: "".concat(_constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "/"),
-  $button: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__product-manage-button'),
-  $container: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('product-manage-container'),
-  $focusInput: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.product-name-input')
+  $button: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__product-manage-button'),
+  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('product-manage-container'),
+  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.product-name-input')
 }, {
   route: "".concat(_constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "/coin-charge/"),
-  $button: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__coin-charge-button'),
-  $container: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('coin-charge-container'),
-  $focusInput: (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('#coin-input')
+  $button: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__coin-charge-button'),
+  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('coin-charge-container'),
+  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('#coin-input')
 }];
 
 var findTarget = function findTarget(route) {
@@ -938,7 +940,7 @@ var handleAdministratorMenuClick = function handleAdministratorMenuClick(event) 
 };
 
 render(findTarget(window.location.pathname));
-(0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('nav', (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.$)('administrator-menu')).addEventListener('click', handleAdministratorMenuClick);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('nav', (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('administrator-menu')).addEventListener('click', handleAdministratorMenuClick);
 window.addEventListener('popstate', function (event) {
   var currentTarget = findTarget(window.location.pathname);
   var prevTarget = findTarget(event.state.prevRoute);
@@ -947,16 +949,18 @@ window.addEventListener('popstate', function (event) {
 
 /***/ }),
 
-/***/ "./src/utils/dom.js":
-/*!**************************!*\
-  !*** ./src/utils/dom.js ***!
-  \**************************/
+/***/ "./src/utils.js":
+/*!**********************!*\
+  !*** ./src/utils.js ***!
+  \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "$": () => (/* binding */ $),
-/* harmony export */   "$$": () => (/* binding */ $$)
+/* harmony export */   "$$": () => (/* binding */ $$),
+/* harmony export */   "pickNumberInList": () => (/* binding */ pickNumberInList),
+/* harmony export */   "addThousandUnitsComma": () => (/* binding */ addThousandUnitsComma)
 /* harmony export */ });
 var $ = function $(selector) {
   var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
@@ -966,25 +970,13 @@ var $$ = function $$(selector) {
   var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
   return Array.from(scope.querySelectorAll(selector));
 };
-
-/***/ }),
-
-/***/ "./src/utils/random.js":
-/*!*****************************!*\
-  !*** ./src/utils/random.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 var pickNumberInList = function pickNumberInList(array) {
   var index = Math.floor(Math.random() * array.length);
   return array[index];
 };
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (pickNumberInList);
+var addThousandUnitsComma = function addThousandUnitsComma(number) {
+  return number.toLocaleString();
+};
 
 /***/ }),
 
@@ -1777,7 +1769,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./src/domains/actions.ts");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
-/* harmony import */ var _utils_random__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/random */ "./src/utils/random.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 var __classPrivateFieldGet = (undefined && undefined.__classPrivateFieldGet) || function (receiver, state, kind, f) {
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
@@ -1838,7 +1830,7 @@ class CoinStore {
         let coinList = [500, 100, 50, 10];
         let money = detail;
         while (money) {
-            const randomCoin = (0,_utils_random__WEBPACK_IMPORTED_MODULE_2__["default"])(coinList);
+            const randomCoin = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.pickNumberInList)(coinList);
             if (money < randomCoin) {
                 coinList = this.generateNewCoinList(coinList, money);
                 continue;
