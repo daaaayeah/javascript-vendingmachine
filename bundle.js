@@ -680,6 +680,12 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleProductDeleteButtonClick", function (_ref) {
+      var productName = _ref.productName;
+      if (!window.confirm(_constants__WEBPACK_IMPORTED_MODULE_5__.CONFIRM_MESSAGE.DELETE)) return;
+      _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_0__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_1__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_1__.PRODUCT_ACTION.DELETE, productName));
+    });
+
     _defineProperty(_assertThisInitialized(_this), "handleProductModifyEnter", function (event, $tbodyRow) {
       if (event.key !== 'Enter') return;
 
@@ -696,11 +702,6 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
       } catch (error) {
         alert(error.message);
       }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleProductDeleteButtonClick", function (productName) {
-      if (!window.confirm(_constants__WEBPACK_IMPORTED_MODULE_5__.CONFIRM_MESSAGE.DELETE)) return;
-      _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_0__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_1__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_1__.PRODUCT_ACTION.DELETE, productName));
     });
 
     return _this;
@@ -721,14 +722,14 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
 
   }, {
     key: "rerender",
-    value: function rerender(_ref) {
-      var type = _ref.type,
-          detail = _ref.detail;
+    value: function rerender(_ref2) {
+      var type = _ref2.type,
+          detail = _ref2.detail;
 
       switch (type) {
         case _domains_actions__WEBPACK_IMPORTED_MODULE_1__.PRODUCT_ACTION.ADD:
           (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('tbody', (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.product-current-situation')).insertAdjacentHTML('beforeend', this.tableBodyRowTemplate(detail));
-          this.setEventAfterRerender(detail);
+          this.setEventAfterProductAddRerender(detail);
           break;
 
         case _domains_actions__WEBPACK_IMPORTED_MODULE_1__.PRODUCT_ACTION.MODIFY:
@@ -756,25 +757,25 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
 
   }, {
     key: "tableBodyRowTemplate",
-    value: function tableBodyRowTemplate(_ref2) {
-      var name = _ref2.name,
-          price = _ref2.price,
-          quantity = _ref2.quantity;
+    value: function tableBodyRowTemplate(_ref3) {
+      var name = _ref3.name,
+          price = _ref3.price,
+          quantity = _ref3.quantity;
       return " \n      <tr data-product-name=\"".concat(name, "\">\n        <td class=\"product-td product-name-td\">").concat(name, "</td>\n        <td class=\"product-modify-td product-name-td\" hidden>\n          <input class=\"product-name-input\" placeholder=\"\uC0C1\uD488\uBA85\" value=\"").concat(name, "\" maxlength=\"10\" required>\n        </td>\n\n        <td class=\"product-td product-price-td\">").concat(price, "</td>\n        <td class=\"product-modify-td product-price-td\" hidden>\n          <input type=\"number\" class=\"product-price-input\" placeholder=\"\uAC00\uACA9\" value=\"").concat(price, "\" min=\"100\" max=\"10000\" required>\n        </td>\n      \n        <td class=\"product-td product-quantity-td\">").concat(quantity, "</td>\n        <td class=\"product-modify-td product-quantity-td\" hidden>\n          <input type=\"number\" class=\"product-quantity-input\" placeholder=\"\uC218\uB7C9\" value=\"").concat(quantity, "\" min=\"1\" max=\"20\" required>\n        </td>\n\n        <td class=\"product-td product-manage-buttons-td\">\n          <button class=\"table__product-modify-button\">\uC218\uC815</button>\n          <button class=\"table__product-delete-button\">\uC0AD\uC81C</button>\n        </td>\n        <td class=\"product-modify-td product-manage-buttons-td\" hidden>\n          <button class=\"table__product-modify-confirm-button\">\uD655\uC778</button>\n        </td>\n      </tr>\n    ");
     }
   }, {
-    key: "setEventAfterRerender",
-    value: function setEventAfterRerender(_ref3) {
+    key: "setEventAfterProductAddRerender",
+    value: function setEventAfterProductAddRerender(_ref4) {
       var _this2 = this;
 
-      var name = _ref3.name;
+      var name = _ref4.name;
       var $tbodyRow = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)("[data-product-name=\"".concat(name, "\"]"));
       $tbodyRow.scrollIntoView();
       (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-modify-button', $tbodyRow).addEventListener('click', function () {
         return _this2.handleProductModifyButtonClick($tbodyRow);
       });
       (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$)('.table__product-delete-button', $tbodyRow).addEventListener('click', function () {
-        return _this2.handleProductDeleteButtonClick(name);
+        _this2.handleProductDeleteButtonClick($tbodyRow.dataset);
       });
       (0,_utils__WEBPACK_IMPORTED_MODULE_3__.$$)('.product-modify-td input', $tbodyRow).forEach(function (input) {
         return input.addEventListener('keydown', function (event) {
