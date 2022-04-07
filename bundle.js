@@ -378,7 +378,8 @@ var AuthMenu = /*#__PURE__*/function (_CustomElement) {
     key: "render",
     value: function () {
       var _render = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee2() {
-        var userNameFirstChar, user;
+        var userNameFirstChar, _user$name, user;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -395,7 +396,7 @@ var AuthMenu = /*#__PURE__*/function (_CustomElement) {
 
               case 4:
                 user = _context2.sent;
-                userNameFirstChar = user.name.charAt(0);
+                userNameFirstChar = (_user$name = user.name) === null || _user$name === void 0 ? void 0 : _user$name.charAt(0);
 
               case 6:
                 this.insertAdjacentHTML('beforeend', this.template(userNameFirstChar));
@@ -420,7 +421,7 @@ var AuthMenu = /*#__PURE__*/function (_CustomElement) {
       var isAdministrator = userNameFirstChar !== '';
       var isLoginButtonHidden = isAdministrator ? 'hidden' : '';
       var isUserButtonHidden = isAdministrator ? '' : 'hidden';
-      return "\n      <a href=\"#!login\">\n        <button class=\"login-button ".concat(isLoginButtonHidden, "\">\uB85C\uADF8\uC778</button>\n      </a>\n      <button class=\"user-button ").concat(isUserButtonHidden, "\">").concat(userNameFirstChar, "</button>\n      <div class=\"user-menu-select-box hidden\">\n        <a href=\"#!user-info-modify\">\n          <button>\uD83D\uDEE0 \uD68C\uC6D0 \uC815\uBCF4 \uC218\uC815</button>\n        </a>\n        <button class=\"logout-button\">\uD83D\uDC4B\uD83C\uDFFB \uB85C\uADF8\uC544\uC6C3</button>\n      </div>\n    ");
+      return "\n      <a href=\"#!login\">\n        <button class=\"login-button ".concat(isLoginButtonHidden, "\">\uB85C\uADF8\uC778</button>\n      </a>\n      <button class=\"user-button ").concat(isUserButtonHidden, "\">").concat(userNameFirstChar, "</button>\n      <div class=\"user-menu-select-box hidden\">\n        <a href=\"#!user-info-modify\" class=\"user-info-modify-button\">\n          <button>\uD83D\uDEE0 \uD68C\uC6D0 \uC815\uBCF4 \uC218\uC815</button>\n        </a>\n        <button class=\"logout-button\">\uD83D\uDC4B\uD83C\uDFFB \uB85C\uADF8\uC544\uC6C3</button>\n      </div>\n    ");
     }
   }, {
     key: "setEvent",
@@ -597,7 +598,7 @@ var Login = /*#__PURE__*/function (_CustomElement) {
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Login, [{
     key: "template",
     value: function template() {
-      return "\n      <h1>\uB85C\uADF8\uC778</h1>\n      <form class=\"login-form auth-form\">\n        <fieldset>\n          <label for=\"login-email\">\uC774\uBA54\uC77C</label>\n          <input type=\"email\" id=\"login-email\" name=\"email\" placeholder=\"woowacourse@gmail.com\" required>\n          <label for=\"login-password\">\uBE44\uBC00\uBC88\uD638</label>\n          <input type=\"password\" id=\"login-password\" name=\"password\" placeholder=\"\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694\" minLength=\"4\" required>\n          <button class=\"login-confirm-button\">\uD655\uC778</button>\n        </fieldset>\n      </form>\n      <p>\uC544\uC9C1 \uD68C\uC6D0\uC774 \uC544\uB2C8\uC2E0\uAC00\uC694? <span><a href=\"#!signup\">\uD68C\uC6D0\uAC00\uC785</a></span></p>\n    ";
+      return "\n      <h1>\uB85C\uADF8\uC778</h1>\n      <form class=\"login-form auth-form\">\n        <fieldset>\n          <label for=\"login-email\">\uC774\uBA54\uC77C</label>\n          <input type=\"email\" id=\"login-email\" name=\"email\" placeholder=\"woowacourse@gmail.com\" required>\n          <label for=\"login-password\">\uBE44\uBC00\uBC88\uD638</label>\n          <input type=\"password\" id=\"login-password\" name=\"password\" placeholder=\"\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694\" minLength=\"4\" required>\n          <button class=\"login-confirm-button\">\uD655\uC778</button>\n        </fieldset>\n      </form>\n      <p>\uC544\uC9C1 \uD68C\uC6D0\uC774 \uC544\uB2C8\uC2E0\uAC00\uC694? <span><a href=\"#!signup\" class=\"signup-button\">\uD68C\uC6D0\uAC00\uC785</a></span></p>\n    ";
     }
   }, {
     key: "setEvent",
@@ -3975,7 +3976,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 function signup(email, name, password) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch('http://localhost:3000/register', {
+        const response = yield fetch('https://vendingmachine-auth-server.herokuapp.com/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -3994,7 +3995,7 @@ function signup(email, name, password) {
 }
 function login(email, password) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch('http://localhost:3000/login', {
+        const response = yield fetch('https://vendingmachine-auth-server.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -4020,7 +4021,7 @@ function getUser() {
     return __awaiter(this, void 0, void 0, function* () {
         const userId = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('user_id');
         const accessToken = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('access_token');
-        const response = yield fetch(`http://localhost:3000/users/${userId}`, {
+        const response = yield fetch(`https://vendingmachine-auth-server.herokuapp.com/users/${userId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
