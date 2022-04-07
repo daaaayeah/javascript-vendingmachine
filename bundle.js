@@ -779,7 +779,7 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 userName = $name.value.trim();
-                (0,_validators__WEBPACK_IMPORTED_MODULE_13__.checkSignupValidation)(userName, $password, $passwordConfirm);
+                (0,_validators__WEBPACK_IMPORTED_MODULE_13__.checkSignupValidation)(userName, $password.value, $passwordConfirm.value);
                 _context2.next = 4;
                 return (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_11__.signup)($email.value, userName, $password.value);
 
