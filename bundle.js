@@ -87,6 +87,7 @@ var CustomElement = /*#__PURE__*/function (_HTMLElement) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "BASE_HASH": () => (/* binding */ BASE_HASH),
+/* harmony export */   "AUTH_BASE_URL": () => (/* binding */ AUTH_BASE_URL),
 /* harmony export */   "HEADER": () => (/* binding */ HEADER),
 /* harmony export */   "COIN": () => (/* binding */ COIN),
 /* harmony export */   "MONEY": () => (/* binding */ MONEY),
@@ -99,6 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/utils.js");
 
 var BASE_HASH = '#!product-purchase';
+var AUTH_BASE_URL = 'http://localhost:3000';
 var HEADER = {
   VENDING_MACHINE: '🍿 자판기 🍿',
   LOGIN: '로그인',
@@ -3964,6 +3966,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "isLoggedIn": () => (/* binding */ isLoggedIn)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./src/constants.js");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -3974,9 +3977,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
     });
 };
 
+
 function signup(email, name, password) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch('https://vendingmachine-auth-server.herokuapp.com/register', {
+        const response = yield fetch(`${_constants__WEBPACK_IMPORTED_MODULE_1__.AUTH_BASE_URL}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -3995,7 +3999,7 @@ function signup(email, name, password) {
 }
 function login(email, password) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch('https://vendingmachine-auth-server.herokuapp.com/login', {
+        const response = yield fetch(`${_constants__WEBPACK_IMPORTED_MODULE_1__.AUTH_BASE_URL}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -4021,7 +4025,7 @@ function getUser() {
     return __awaiter(this, void 0, void 0, function* () {
         const userId = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('user_id');
         const accessToken = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('access_token');
-        const response = yield fetch(`https://vendingmachine-auth-server.herokuapp.com/users/${userId}`, {
+        const response = yield fetch(`${_constants__WEBPACK_IMPORTED_MODULE_1__.AUTH_BASE_URL}/users/${userId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
