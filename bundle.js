@@ -880,7 +880,8 @@ var UserInfoModify = /*#__PURE__*/function (_CustomElement) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleUserInfoModifyFormSubmit", function () {
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleUserInfoModifyFormSubmit", function (event) {
+      event.preventDefault();
       window.location.hash = _constants__WEBPACK_IMPORTED_MODULE_13__.BASE_HASH;
     });
 
