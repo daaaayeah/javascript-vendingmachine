@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/utils.js");
 
 var BASE_HASH = '#!product-purchase';
-var AUTH_BASE_URL = 'http://localhost:3000';
+var AUTH_BASE_URL = 'https://vendingmachine-auth-server.herokuapp.com';
 var HEADER = {
   VENDING_MACHINE: '🍿 자판기 🍿',
   LOGIN: '로그인',
