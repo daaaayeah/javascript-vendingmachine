@@ -380,30 +380,22 @@ var AuthMenu = /*#__PURE__*/function (_CustomElement) {
     key: "render",
     value: function () {
       var _render = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee2() {
-        var userNameFirstChar, _user$name, user;
+        var _user$name$charAt;
 
+        var user, userNameFirstChar;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                userNameFirstChar = '';
-
-                if (!(0,_domains_Auth__WEBPACK_IMPORTED_MODULE_11__.isLoggedIn)()) {
-                  _context2.next = 6;
-                  break;
-                }
-
-                _context2.next = 4;
+                _context2.next = 2;
                 return (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_11__.getUser)();
 
-              case 4:
+              case 2:
                 user = _context2.sent;
-                userNameFirstChar = (_user$name = user.name) === null || _user$name === void 0 ? void 0 : _user$name.charAt(0);
-
-              case 6:
+                userNameFirstChar = (_user$name$charAt = user === null || user === void 0 ? void 0 : user.name.charAt(0)) !== null && _user$name$charAt !== void 0 ? _user$name$charAt : '';
                 this.insertAdjacentHTML('beforeend', this.template(userNameFirstChar));
 
-              case 7:
+              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -933,7 +925,7 @@ var UserInfoModify = /*#__PURE__*/function (_CustomElement) {
 
               case 2:
                 user = _context2.sent;
-                this.insertAdjacentHTML('beforeend', this.template(user.email));
+                this.insertAdjacentHTML('beforeend', this.template(user === null || user === void 0 ? void 0 : user.email));
 
               case 4:
               case "end":
@@ -973,7 +965,7 @@ var UserInfoModify = /*#__PURE__*/function (_CustomElement) {
 
               case 2:
                 user = _context3.sent;
-                (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('#user-info-modify-email').placeholder = user.email;
+                (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('#user-info-modify-email').placeholder = user === null || user === void 0 ? void 0 : user.email;
 
               case 4:
               case "end":
@@ -3962,8 +3954,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "signup": () => (/* binding */ signup),
 /* harmony export */   "login": () => (/* binding */ login),
 /* harmony export */   "logout": () => (/* binding */ logout),
-/* harmony export */   "getUser": () => (/* binding */ getUser),
-/* harmony export */   "isLoggedIn": () => (/* binding */ isLoggedIn)
+/* harmony export */   "isLoggedIn": () => (/* binding */ isLoggedIn),
+/* harmony export */   "getUser": () => (/* binding */ getUser)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./src/constants.js");
@@ -4021,10 +4013,17 @@ function logout() {
     document.cookie = `user_id=`;
     document.cookie = `access_token=`;
 }
+function isLoggedIn() {
+    const userId = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('user_id');
+    const accessToken = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('access_token');
+    return userId && userId !== '' && accessToken && accessToken !== '';
+}
 function getUser() {
     return __awaiter(this, void 0, void 0, function* () {
         const userId = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('user_id');
         const accessToken = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('access_token');
+        if (!isLoggedIn())
+            return undefined;
         const response = yield fetch(`${_constants__WEBPACK_IMPORTED_MODULE_1__.AUTH_BASE_URL}/users/${userId}`, {
             method: 'GET',
             headers: {
@@ -4035,11 +4034,6 @@ function getUser() {
         const user = yield response.json();
         return user;
     });
-}
-function isLoggedIn() {
-    const userId = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('user_id');
-    const accessToken = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('access_token');
-    return userId !== '' && accessToken !== '';
 }
 
 
