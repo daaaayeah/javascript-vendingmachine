@@ -724,20 +724,25 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
               case 5:
                 _this.initSignupInputs(email, name, password, passwordConfirm);
 
-                _context.next = 12;
+                _context.next = 14;
                 break;
 
               case 8:
                 _context.prev = 8;
                 _context.t0 = _context["catch"](2);
 
-                if (_context.t0.message === _constants__WEBPACK_IMPORTED_MODULE_10__.JSON_AUTH_SERVER_ERROR_MESSAGE.EMAIL_ALREADY_EXISTS) {
-                  alert(_constants__WEBPACK_IMPORTED_MODULE_10__.ERROR_MESSAGE.AUTH.EMAIL_ALREADY_EXISTS);
+                if (!(_context.t0.message === _constants__WEBPACK_IMPORTED_MODULE_10__.JSON_AUTH_SERVER_ERROR_MESSAGE.EMAIL_ALREADY_EXISTS)) {
+                  _context.next = 13;
+                  break;
                 }
 
+                alert(_constants__WEBPACK_IMPORTED_MODULE_10__.ERROR_MESSAGE.AUTH.EMAIL_ALREADY_EXISTS);
+                return _context.abrupt("return");
+
+              case 13:
                 alert(_context.t0.message);
 
-              case 12:
+              case 14:
               case "end":
                 return _context.stop();
             }
