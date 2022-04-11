@@ -4026,10 +4026,10 @@ function isLoggedIn() {
 }
 function getUser() {
     return __awaiter(this, void 0, void 0, function* () {
-        const userId = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('user_id');
-        const accessToken = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('access_token');
         if (!isLoggedIn())
             return undefined;
+        const userId = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('user_id');
+        const accessToken = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('access_token');
         const response = yield fetch(`${_constants__WEBPACK_IMPORTED_MODULE_1__.AUTH_BASE_URL}/users/${userId}`, {
             method: 'GET',
             headers: {
