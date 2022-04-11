@@ -553,7 +553,7 @@ var Login = /*#__PURE__*/function (_CustomElement) {
                 _event$target$element = event.target.elements, email = _event$target$element.email, password = _event$target$element.password;
                 _context.prev = 2;
                 _context.next = 5;
-                return _this.logIn(email, password);
+                return _this.loginAdministrator(email, password);
 
               case 5:
                 _this.initLoginInputs(email, password);
@@ -600,9 +600,9 @@ var Login = /*#__PURE__*/function (_CustomElement) {
       (0,_utils__WEBPACK_IMPORTED_MODULE_13__.$)('.login-form').addEventListener('submit', this.handleLoginFormSubmit);
     }
   }, {
-    key: "logIn",
+    key: "loginAdministrator",
     value: function () {
-      var _logIn = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee2($email, $password) {
+      var _loginAdministrator = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee2($email, $password) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -623,11 +623,11 @@ var Login = /*#__PURE__*/function (_CustomElement) {
         }, _callee2, this);
       }));
 
-      function logIn(_x2, _x3) {
-        return _logIn.apply(this, arguments);
+      function loginAdministrator(_x2, _x3) {
+        return _loginAdministrator.apply(this, arguments);
       }
 
-      return logIn;
+      return loginAdministrator;
     }()
   }, {
     key: "initLoginInputs",
@@ -719,7 +719,7 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
                 _event$target$element = event.target.elements, email = _event$target$element.email, name = _event$target$element.name, password = _event$target$element.password, passwordConfirm = _event$target$element.passwordConfirm;
                 _context.prev = 2;
                 _context.next = 5;
-                return _this.signUp(email, name, password, passwordConfirm);
+                return _this.registerAdministrator(email, name, password, passwordConfirm);
 
               case 5:
                 _this.initSignupInputs(email, name, password, passwordConfirm);
@@ -769,9 +769,9 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
       (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.signup-form').addEventListener('submit', this.handleSignupFormSubmit);
     }
   }, {
-    key: "signUp",
+    key: "registerAdministrator",
     value: function () {
-      var _signUp = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee2($email, $name, $password, $passwordConfirm) {
+      var _registerAdministrator = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee2($email, $name, $password, $passwordConfirm) {
         var userName;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().wrap(function _callee2$(_context2) {
           while (1) {
@@ -794,11 +794,11 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
         }, _callee2, this);
       }));
 
-      function signUp(_x2, _x3, _x4, _x5) {
-        return _signUp.apply(this, arguments);
+      function registerAdministrator(_x2, _x3, _x4, _x5) {
+        return _registerAdministrator.apply(this, arguments);
       }
 
-      return signUp;
+      return registerAdministrator;
     }()
   }, {
     key: "initSignupInputs",
