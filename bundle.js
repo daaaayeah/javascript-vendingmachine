@@ -112,6 +112,7 @@ var COIN = {
 };
 var MONEY = {
   DEFAULT: 0,
+  MIN: 10,
   MACHINE_MAX: 100000,
   CUSTOMER_MAX: 10000
 };
@@ -149,6 +150,8 @@ var ERROR_MESSAGE = {
     IS_NOT_INTEGER_QUANTITY: '수량에 정수가 입력되지 않았습니다! 정수를 입력해 주세요!',
     IS_UNDER_MIN_QUANTITY: "\uC218\uB7C9\uC774 \uCD5C\uC18C \uC218\uB7C9\uC778 ".concat(PRODUCT.QUANTITY.MIN, "\uAC1C \uBBF8\uB9CC\uC73C\uB85C \uC785\uB825\uB418\uC5C8\uC2B5\uB2C8\uB2E4! ").concat(PRODUCT.QUANTITY.MIN, "\uAC1C \uC774\uC0C1\uC73C\uB85C \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
     IS_OVER_MAX_QUANTITY: "\uC218\uB7C9\uC774 \uCD5C\uB300 \uC218\uB7C9\uC778 ".concat(PRODUCT.QUANTITY.MAX, "\uAC1C\uB97C \uCD08\uACFC\uD558\uC5EC \uC785\uB825\uB418\uC5C8\uC2B5\uB2C8\uB2E4! ").concat(PRODUCT.QUANTITY.MAX, "\uAC1C \uC774\uD558\uB85C \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
+    IS_NOT_INTEGER_MONEY: '금액에 정수가 입력되지 않았습니다! 정수를 입력해 주세요!',
+    IS_UNDER_MIN_MONEY: "\uAE08\uC561\uC774 \uCD5C\uC18C \uAE08\uC561\uC778 ".concat(MONEY.MIN, "\uC6D0 \uBBF8\uB9CC\uC73C\uB85C \uC785\uB825\uB418\uC5C8\uC2B5\uB2C8\uB2E4! ").concat(MONEY.MIN, "\uC6D0 \uC774\uC0C1\uC73C\uB85C \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
     IS_OVER_MAX_MACHINE_MONEY: "\uD604\uC7AC \uBCF4\uC720 \uAE08\uC561\uC774 \uCD5C\uB300 \uBCF4\uC720 \uAC00\uB2A5 \uAE08\uC561\uC778 ".concat((0,_utils__WEBPACK_IMPORTED_MODULE_0__.addThousandUnitComma)(MONEY.MACHINE_MAX), "\uC6D0\uC744 \uCD08\uACFC\uD558\uC600\uC2B5\uB2C8\uB2E4! \uD604\uC7AC \uBCF4\uC720 \uAE08\uC561\uC744 \uD655\uC778\uD55C \uD6C4 \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
     IS_OVER_MAX_CUSTOMER_MONEY: "\uD22C\uC785\uD55C \uAE08\uC561\uC774 \uCD5C\uB300 \uD22C\uC785 \uAC00\uB2A5 \uAE08\uC561\uC778 ".concat((0,_utils__WEBPACK_IMPORTED_MODULE_0__.addThousandUnitComma)(MONEY.CUSTOMER_MAX), "\uC6D0\uC744 \uCD08\uACFC\uD558\uC600\uC2B5\uB2C8\uB2E4! \uD22C\uC785\uD55C \uAE08\uC561\uC744 \uD655\uC778\uD55C \uD6C4 \uC785\uB825\uD574 \uC8FC\uC138\uC694!"),
     MONEY_CANNOT_DIVIDED_BY_TEN: '금액에 1원 단위가 입력되었습니다! 10원 단위로 입력해 주세요!',
@@ -2402,6 +2405,10 @@ var isOverMaxQuantity = function isOverMaxQuantity(quantity) {
   return quantity > _constants__WEBPACK_IMPORTED_MODULE_2__.PRODUCT.QUANTITY.MAX;
 };
 
+var isUnderMinMoney = function isUnderMinMoney(money) {
+  return money < _constants__WEBPACK_IMPORTED_MODULE_2__.MONEY.MIN;
+};
+
 var isOverMaxMachineMoney = function isOverMaxMachineMoney(inputMachineMoney) {
   var currentMachineMoney = _domains_stores_CoinStore__WEBPACK_IMPORTED_MODULE_1__["default"].instance.machine.money;
   return currentMachineMoney + inputMachineMoney > _constants__WEBPACK_IMPORTED_MODULE_2__.MONEY.MACHINE_MAX;
@@ -2426,102 +2433,165 @@ var isNoCustomerMoney = function isNoCustomerMoney() {
 
 var isPasswordConfirmNotMatchPassword = function isPasswordConfirmNotMatchPassword(password, passwordConfirm) {
   return password !== passwordConfirm;
+};
+
+var validator = function validator(conditions) {
+  conditions.forEach(function (_ref) {
+    var checker = _ref.checker,
+        errorMessage = _ref.errorMessage;
+    if (checker()) throw new Error(errorMessage);
+  });
 }; // eslint-disable-next-line max-lines-per-function
 
 
-var checkProductValidation = function checkProductValidation(_ref) {
-  var name = _ref.name,
-      price = _ref.price,
-      quantity = _ref.quantity;
-
-  if (isBlank(name)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_BLANK_PRODUCT_NAME);
-  }
-
-  if (isOverMaxProductNameLength(name)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_PRODUCT_NAME_LENGTH);
-  }
-
-  if (isNotInteger(price)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_NOT_INTEGER_PRICE);
-  }
-
-  if (isUnderMinPrice(price)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_UNDER_MIN_PRICE);
-  }
-
-  if (isOverMaxPrice(price)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_PRICE);
-  }
-
-  if (cannotDividedByTen(price)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.PRICE_CANNOT_DIVIDED_BY_TEN);
-  }
-
-  if (isNotInteger(quantity)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_NOT_INTEGER_QUANTITY);
-  }
-
-  if (isUnderMinQuantity(quantity)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_UNDER_MIN_QUANTITY);
-  }
-
-  if (isOverMaxQuantity(quantity)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_QUANTITY);
-  }
+var checkProductValidation = function checkProductValidation(_ref2) {
+  var name = _ref2.name,
+      price = _ref2.price,
+      quantity = _ref2.quantity;
+  validator([{
+    checker: function checker() {
+      return isBlank(name);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_BLANK_PRODUCT_NAME
+  }, {
+    checker: function checker() {
+      return isOverMaxProductNameLength(name);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_PRODUCT_NAME_LENGTH
+  }, {
+    checker: function checker() {
+      return isNotInteger(price);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_NOT_INTEGER_PRICE
+  }, {
+    checker: function checker() {
+      return isUnderMinPrice(price);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_UNDER_MIN_PRICE
+  }, {
+    checker: function checker() {
+      return isOverMaxPrice(price);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_PRICE
+  }, {
+    checker: function checker() {
+      return cannotDividedByTen(price);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.PRICE_CANNOT_DIVIDED_BY_TEN
+  }, {
+    checker: function checker() {
+      return isNotInteger(quantity);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_NOT_INTEGER_QUANTITY
+  }, {
+    checker: function checker() {
+      return isUnderMinQuantity(quantity);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_UNDER_MIN_QUANTITY
+  }, {
+    checker: function checker() {
+      return isOverMaxQuantity(quantity);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_QUANTITY
+  }]);
 };
 var checkProductAddValidation = function checkProductAddValidation(product) {
-  if (isAlreadyExistProduct(product.name)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_ALREADY_EXIST_PRODUCT_WHEN_ADD);
-  }
-
+  validator([{
+    checker: function checker() {
+      return isAlreadyExistProduct(product.name);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_ALREADY_EXIST_PRODUCT_WHEN_ADD
+  }]);
   checkProductValidation(product);
 };
-var checkDuplicateProductWhenModify = function checkDuplicateProductWhenModify(product) {
-  if (isAlreadyExistProduct(product.name)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_ALREADY_EXIST_PRODUCT_WHEN_MODIFY);
-  }
+var checkDuplicateProductWhenModify = function checkDuplicateProductWhenModify(_ref3) {
+  var name = _ref3.name;
+  validator([{
+    checker: function checker() {
+      return isAlreadyExistProduct(name);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_ALREADY_EXIST_PRODUCT_WHEN_MODIFY
+  }]);
 };
 var checkMachineMoneyValidation = function checkMachineMoneyValidation(machineMoneyInputValue) {
-  if (isOverMaxMachineMoney(machineMoneyInputValue)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_MACHINE_MONEY);
-  }
-
-  if (cannotDividedByTen(machineMoneyInputValue)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.MONEY_CANNOT_DIVIDED_BY_TEN);
-  }
+  validator([{
+    checker: function checker() {
+      return isNotInteger(machineMoneyInputValue);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_NOT_INTEGER_MONEY
+  }, {
+    checker: function checker() {
+      return isUnderMinMoney(machineMoneyInputValue);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_UNDER_MIN_MONEY
+  }, {
+    checker: function checker() {
+      return isOverMaxMachineMoney(machineMoneyInputValue);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_MACHINE_MONEY
+  }, {
+    checker: function checker() {
+      return cannotDividedByTen(machineMoneyInputValue);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.MONEY_CANNOT_DIVIDED_BY_TEN
+  }]);
 };
 var checkCustomerMoneyValidation = function checkCustomerMoneyValidation(customerMoneyInputValue) {
-  if (isOverMaxCustomerMoney(customerMoneyInputValue)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_CUSTOMER_MONEY);
-  }
-
-  if (cannotDividedByTen(customerMoneyInputValue)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.MONEY_CANNOT_DIVIDED_BY_TEN);
-  }
+  validator([{
+    checker: function checker() {
+      return isNotInteger(customerMoneyInputValue);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_NOT_INTEGER_MONEY
+  }, {
+    checker: function checker() {
+      return isUnderMinMoney(customerMoneyInputValue);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_UNDER_MIN_MONEY
+  }, {
+    checker: function checker() {
+      return isOverMaxCustomerMoney(customerMoneyInputValue);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_OVER_MAX_CUSTOMER_MONEY
+  }, {
+    checker: function checker() {
+      return cannotDividedByTen(customerMoneyInputValue);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.MONEY_CANNOT_DIVIDED_BY_TEN
+  }]);
 };
 var checkProductPurchaseValidation = function checkProductPurchaseValidation(productPrice, productQuantity) {
-  if (isPriceOverCustomerMoney(productPrice)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_PRICE_OVER_CUSTOMER_MONEY);
-  }
-
-  if (isSoldOut(productQuantity)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_SOLD_OUT);
-  }
+  validator([{
+    checker: function checker() {
+      return isPriceOverCustomerMoney(productPrice);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_PRICE_OVER_CUSTOMER_MONEY
+  }, {
+    checker: function checker() {
+      return isSoldOut(productQuantity);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_SOLD_OUT
+  }]);
 };
 var checkChangeReturnValidation = function checkChangeReturnValidation() {
-  if (isNoCustomerMoney()) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_NO_CUSTOMER_MONEY);
-  }
+  validator([{
+    checker: function checker() {
+      return isNoCustomerMoney();
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.VENDING_MACHINE.IS_NO_CUSTOMER_MONEY
+  }]);
 };
 var checkSignupValidation = function checkSignupValidation(userName, password, passwordConfirm) {
-  if (isBlank(userName)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.AUTH.IS_BLANK_USER_NAME);
-  }
-
-  if (isPasswordConfirmNotMatchPassword(password, passwordConfirm)) {
-    throw new Error(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.AUTH.IS_PASSWORD_CONFIRM_NOT_MATCH_PASSWORD);
-  }
+  validator([{
+    checker: function checker() {
+      return isBlank(userName);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.AUTH.IS_BLANK_USER_NAME
+  }, {
+    checker: function checker() {
+      return isPasswordConfirmNotMatchPassword(password, passwordConfirm);
+    },
+    errorMessage: _constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.AUTH.IS_PASSWORD_CONFIRM_NOT_MATCH_PASSWORD
+  }]);
 };
 
 /***/ }),
