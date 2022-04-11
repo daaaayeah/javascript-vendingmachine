@@ -4037,8 +4037,7 @@ function getUser() {
                 Authorization: `Bearer ${accessToken}`,
             },
         });
-        const user = yield response.json();
-        return user;
+        return response.json();
     });
 }
 
