@@ -268,17 +268,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _domains_stores_AuthStore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../domains/stores/AuthStore */ "./src/domains/stores/AuthStore.ts");
-/* harmony import */ var _domains_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../domains/actions */ "./src/domains/actions.ts");
-/* harmony import */ var _domains_Auth__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../domains/Auth */ "./src/domains/Auth.ts");
-/* harmony import */ var _abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../abstracts/CustomElement */ "./src/abstracts/CustomElement.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/get */ "./node_modules/@babel/runtime/helpers/esm/get.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _domains_stores_AuthStore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../domains/stores/AuthStore */ "./src/domains/stores/AuthStore.ts");
+/* harmony import */ var _domains_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../domains/actions */ "./src/domains/actions.ts");
+/* harmony import */ var _domains_Auth__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../domains/Auth */ "./src/domains/Auth.ts");
+/* harmony import */ var _abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../abstracts/CustomElement */ "./src/abstracts/CustomElement.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 
 
 
@@ -289,7 +290,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__["default"])(this, result); }; }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
@@ -300,7 +302,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 var AuthMenu = /*#__PURE__*/function (_CustomElement) {
-  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(AuthMenu, _CustomElement);
+  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(AuthMenu, _CustomElement);
 
   var _super = _createSuper(AuthMenu);
 
@@ -315,36 +317,36 @@ var AuthMenu = /*#__PURE__*/function (_CustomElement) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleAuthMenuClick", function (event) {
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleAuthMenuClick", function (event) {
       var target = event.target;
 
-      if (target === (0,_utils__WEBPACK_IMPORTED_MODULE_13__.$)('.user-button')) {
+      if (target === (0,_utils__WEBPACK_IMPORTED_MODULE_14__.$)('.user-button')) {
         _this.handleUserButtonClick();
 
         return;
       }
 
-      if (target === (0,_utils__WEBPACK_IMPORTED_MODULE_13__.$)('.logout-button')) {
+      if (target === (0,_utils__WEBPACK_IMPORTED_MODULE_14__.$)('.logout-button')) {
         _this.handleLogoutButtonClick();
       }
 
-      (0,_utils__WEBPACK_IMPORTED_MODULE_13__.hideElement)((0,_utils__WEBPACK_IMPORTED_MODULE_13__.$)('.user-menu-select-box'));
+      (0,_utils__WEBPACK_IMPORTED_MODULE_14__.hideElement)((0,_utils__WEBPACK_IMPORTED_MODULE_14__.$)('.user-menu-select-box'));
     });
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleUserButtonClick", function () {
-      var $userMenuSelectBox = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.$)('.user-menu-select-box');
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleUserButtonClick", function () {
+      var $userMenuSelectBox = (0,_utils__WEBPACK_IMPORTED_MODULE_14__.$)('.user-menu-select-box');
 
       if ($userMenuSelectBox.classList.contains('hidden')) {
-        (0,_utils__WEBPACK_IMPORTED_MODULE_13__.showElement)($userMenuSelectBox);
+        (0,_utils__WEBPACK_IMPORTED_MODULE_14__.showElement)($userMenuSelectBox);
         return;
       }
 
-      (0,_utils__WEBPACK_IMPORTED_MODULE_13__.hideElement)($userMenuSelectBox);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_14__.hideElement)($userMenuSelectBox);
     });
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleLogoutButtonClick", function () {
-      (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_11__.logout)();
-      _domains_stores_AuthStore__WEBPACK_IMPORTED_MODULE_9__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_10__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_10__.AUTH_ACTION.LOGOUT));
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleLogoutButtonClick", function () {
+      (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_12__.logout)();
+      _domains_stores_AuthStore__WEBPACK_IMPORTED_MODULE_10__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_11__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_11__.AUTH_ACTION.LOGOUT));
     });
 
     return _this;
@@ -352,58 +354,36 @@ var AuthMenu = /*#__PURE__*/function (_CustomElement) {
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(AuthMenu, [{
     key: "connectedCallback",
+    value: function connectedCallback() {
+      (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_4__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(AuthMenu.prototype), "connectedCallback", this).call(this);
+
+      _domains_stores_AuthStore__WEBPACK_IMPORTED_MODULE_10__["default"].instance.subscribe(this);
+    }
+  }, {
+    key: "render",
     value: function () {
-      var _connectedCallback = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().wrap(function _callee$(_context) {
+      var _render = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_9___default().mark(function _callee() {
+        var _user$name$charAt;
+
+        var user, userNameFirstChar;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_9___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.render();
+                return (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_12__.getUser)();
 
               case 2:
-                this.setEvent();
-                _domains_stores_AuthStore__WEBPACK_IMPORTED_MODULE_9__["default"].instance.subscribe(this);
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function connectedCallback() {
-        return _connectedCallback.apply(this, arguments);
-      }
-
-      return connectedCallback;
-    }()
-  }, {
-    key: "render",
-    value: function () {
-      var _render = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee2() {
-        var _user$name$charAt;
-
-        var user, userNameFirstChar;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_11__.getUser)();
-
-              case 2:
-                user = _context2.sent;
+                user = _context.sent;
                 userNameFirstChar = (_user$name$charAt = user === null || user === void 0 ? void 0 : user.name.charAt(0)) !== null && _user$name$charAt !== void 0 ? _user$name$charAt : '';
                 this.insertAdjacentHTML('beforeend', this.template(userNameFirstChar));
 
               case 5:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee, this);
       }));
 
       function render() {
@@ -428,40 +408,40 @@ var AuthMenu = /*#__PURE__*/function (_CustomElement) {
   }, {
     key: "rerender",
     value: function () {
-      var _rerender = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().mark(function _callee3(isAdministrator) {
+      var _rerender = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_9___default().mark(function _callee2(isAdministrator) {
         var $loginButton, $userButton, user;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default().wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_9___default().wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                $loginButton = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.$)('.login-button');
-                $userButton = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.$)('.user-button');
+                $loginButton = (0,_utils__WEBPACK_IMPORTED_MODULE_14__.$)('.login-button');
+                $userButton = (0,_utils__WEBPACK_IMPORTED_MODULE_14__.$)('.user-button');
 
                 if (!isAdministrator) {
-                  _context3.next = 10;
+                  _context2.next = 10;
                   break;
                 }
 
-                (0,_utils__WEBPACK_IMPORTED_MODULE_13__.hideElement)($loginButton);
-                _context3.next = 6;
-                return (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_11__.getUser)();
+                (0,_utils__WEBPACK_IMPORTED_MODULE_14__.hideElement)($loginButton);
+                _context2.next = 6;
+                return (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_12__.getUser)();
 
               case 6:
-                user = _context3.sent;
+                user = _context2.sent;
                 $userButton.textContent = user.name.charAt(0);
-                (0,_utils__WEBPACK_IMPORTED_MODULE_13__.showElement)($userButton);
-                return _context3.abrupt("return");
+                (0,_utils__WEBPACK_IMPORTED_MODULE_14__.showElement)($userButton);
+                return _context2.abrupt("return");
 
               case 10:
-                (0,_utils__WEBPACK_IMPORTED_MODULE_13__.showElement)($loginButton);
-                (0,_utils__WEBPACK_IMPORTED_MODULE_13__.hideElement)($userButton);
+                (0,_utils__WEBPACK_IMPORTED_MODULE_14__.showElement)($loginButton);
+                (0,_utils__WEBPACK_IMPORTED_MODULE_14__.hideElement)($userButton);
 
               case 12:
               case "end":
-                return _context3.stop();
+                return _context2.stop();
             }
           }
-        }, _callee3);
+        }, _callee2);
       }));
 
       function rerender(_x) {
@@ -473,7 +453,7 @@ var AuthMenu = /*#__PURE__*/function (_CustomElement) {
   }]);
 
   return AuthMenu;
-}(_abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_12__["default"]);
+}(_abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_13__["default"]);
 
 customElements.define('auth-menu', AuthMenu);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AuthMenu);
