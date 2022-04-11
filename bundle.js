@@ -2195,47 +2195,47 @@ customElements.define('vending-machine', VendingMachine);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/utils.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
-/* harmony import */ var _domains_Auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./domains/Auth */ "./src/domains/Auth.ts");
+/* harmony import */ var _domains_stores_AuthStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./domains/stores/AuthStore */ "./src/domains/stores/AuthStore.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./src/utils.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
 
 
 
 var targets = [{
   hash: '#!login',
-  header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.LOGIN,
-  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('log-in'),
-  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('#login-email')
+  header: _constants__WEBPACK_IMPORTED_MODULE_2__.HEADER.LOGIN,
+  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('log-in'),
+  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('#login-email')
 }, {
   hash: '#!signup',
-  header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.SIGNUP,
-  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('sign-up'),
-  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('#signup-email')
+  header: _constants__WEBPACK_IMPORTED_MODULE_2__.HEADER.SIGNUP,
+  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('sign-up'),
+  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('#signup-email')
 }, {
   hash: '#!user-info-modify',
-  header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.USER_INFO_MODIFY,
+  header: _constants__WEBPACK_IMPORTED_MODULE_2__.HEADER.USER_INFO_MODIFY,
   authorization: 'administrator',
-  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('user-info-modify')
+  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('user-info-modify')
 }, {
   hash: '#!product-manage',
-  header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.VENDING_MACHINE,
+  header: _constants__WEBPACK_IMPORTED_MODULE_2__.HEADER.VENDING_MACHINE,
   authorization: 'administrator',
-  $button: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__product-manage-button'),
-  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('product-manage-container'),
-  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.product-name-input')
+  $button: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('.nav__product-manage-button'),
+  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('product-manage-container'),
+  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('.product-name-input')
 }, {
   hash: '#!coin-charge',
-  header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.VENDING_MACHINE,
+  header: _constants__WEBPACK_IMPORTED_MODULE_2__.HEADER.VENDING_MACHINE,
   authorization: 'administrator',
-  $button: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__coin-charge-button'),
-  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('coin-charge-container'),
-  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('#machine-money-input')
+  $button: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('.nav__coin-charge-button'),
+  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('coin-charge-container'),
+  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('#machine-money-input')
 }, {
   hash: '#!product-purchase',
-  header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.VENDING_MACHINE,
-  $button: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__product-purchase-button'),
-  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('product-purchase-container'),
-  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('#customer-money-input')
+  header: _constants__WEBPACK_IMPORTED_MODULE_2__.HEADER.VENDING_MACHINE,
+  $button: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('.nav__product-purchase-button'),
+  $container: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('product-purchase-container'),
+  $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('#customer-money-input')
 }];
 
 var findTarget = function findTarget(hash) {
@@ -2245,34 +2245,34 @@ var findTarget = function findTarget(hash) {
 };
 
 var renderApp = function renderApp(currentTarget) {
-  if (currentTarget.header === _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.VENDING_MACHINE) {
-    (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('#app').classList.remove('auth-app');
-    (0,_utils__WEBPACK_IMPORTED_MODULE_0__.showElement)((0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('vending-machine'));
+  if (currentTarget.header === _constants__WEBPACK_IMPORTED_MODULE_2__.HEADER.VENDING_MACHINE) {
+    (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('#app').classList.remove('auth-app');
+    (0,_utils__WEBPACK_IMPORTED_MODULE_1__.showElement)((0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('vending-machine'));
     return;
   }
 
-  (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('#app').classList.add('auth-app');
-  (0,_utils__WEBPACK_IMPORTED_MODULE_0__.hideElement)((0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('vending-machine'));
+  (0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('#app').classList.add('auth-app');
+  (0,_utils__WEBPACK_IMPORTED_MODULE_1__.hideElement)((0,_utils__WEBPACK_IMPORTED_MODULE_1__.$)('vending-machine'));
 };
 
 var renderTargets = function renderTargets(currentTarget, prevTarget) {
   var _currentTarget$$butto, _currentTarget$$focus, _prevTarget$$button;
 
-  if (currentTarget.authorization && !(0,_domains_Auth__WEBPACK_IMPORTED_MODULE_2__.isLoggedIn)()) {
-    alert(_constants__WEBPACK_IMPORTED_MODULE_1__.ERROR_MESSAGE.AUTH.CANNOT_ACCESS);
+  if (currentTarget.authorization && !_domains_stores_AuthStore__WEBPACK_IMPORTED_MODULE_0__["default"].instance.isLoggedIn) {
+    alert(_constants__WEBPACK_IMPORTED_MODULE_2__.ERROR_MESSAGE.AUTH.CANNOT_ACCESS);
     window.history.back();
     return;
   }
 
   (_currentTarget$$butto = currentTarget.$button) === null || _currentTarget$$butto === void 0 ? void 0 : _currentTarget$$butto.classList.add('clicked');
-  (0,_utils__WEBPACK_IMPORTED_MODULE_0__.showElement)(currentTarget.$container);
+  (0,_utils__WEBPACK_IMPORTED_MODULE_1__.showElement)(currentTarget.$container);
   (_currentTarget$$focus = currentTarget.$focusInput) === null || _currentTarget$$focus === void 0 ? void 0 : _currentTarget$$focus.focus();
   if (!prevTarget) return;
   (_prevTarget$$button = prevTarget.$button) === null || _prevTarget$$button === void 0 ? void 0 : _prevTarget$$button.classList.remove('clicked');
-  (0,_utils__WEBPACK_IMPORTED_MODULE_0__.hideElement)(prevTarget.$container);
+  (0,_utils__WEBPACK_IMPORTED_MODULE_1__.hideElement)(prevTarget.$container);
 };
 
-window.location.hash = _constants__WEBPACK_IMPORTED_MODULE_1__.BASE_HASH;
+window.location.hash = _constants__WEBPACK_IMPORTED_MODULE_2__.BASE_HASH;
 
 window.onhashchange = function (event) {
   var currentHash = window.location.hash;
@@ -4204,6 +4204,9 @@ class AuthStore {
     }
     notifySubscribers() {
         __classPrivateFieldGet(this, _AuthStore_subscribers, "f").forEach((subscriber) => subscriber.rerender(__classPrivateFieldGet(this, _AuthStore_isLoggedIn, "f")));
+    }
+    get isLoggedIn() {
+        return __classPrivateFieldGet(this, _AuthStore_isLoggedIn, "f");
     }
 }
 _AuthStore_isLoggedIn = new WeakMap(), _AuthStore_subscribers = new WeakMap();
