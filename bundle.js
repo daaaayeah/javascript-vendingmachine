@@ -4022,7 +4022,7 @@ function logout() {
 function isLoggedIn() {
     const userId = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('user_id');
     const accessToken = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('access_token');
-    return userId && userId !== '' && accessToken && accessToken !== '';
+    return userId && accessToken;
 }
 function getUser() {
     return __awaiter(this, void 0, void 0, function* () {
