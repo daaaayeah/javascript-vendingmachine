@@ -160,6 +160,7 @@ var ERROR_MESSAGE = {
     IS_NO_CUSTOMER_MONEY: '투입한 금액이 없습니다! 10원부터 잔돈으로 반환할 수 있습니다!'
   },
   AUTH: {
+    CANNOT_ACCESS: '접근 권한이 없습니다! 로그인 후 이용해 주세요!',
     CANNOT_FIND_USER: '가입되지 않은 이메일입니다! 이메일을 확인해 주세요!',
     INCORRECT_PASSWORD: '비밀번호가 틀렸습니다! 비밀번호를 다시 입력해 주세요!',
     EMAIL_ALREADY_EXISTS: '이미 가입된 이메일입니다! 뒤로 가기를 눌러 로그인해 주세요!',
@@ -649,11 +650,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../abstracts/CustomElement */ "./src/abstracts/CustomElement.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
-/* harmony import */ var _domains_Auth__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../domains/Auth */ "./src/domains/Auth.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
-/* harmony import */ var _validators__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../validators */ "./src/validators.js");
+/* harmony import */ var _domains_Auth__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../domains/Auth */ "./src/domains/Auth.ts");
+/* harmony import */ var _abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../abstracts/CustomElement */ "./src/abstracts/CustomElement.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _validators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../validators */ "./src/validators.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
 
 
 
@@ -714,12 +715,12 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
                 _context.prev = 8;
                 _context.t0 = _context["catch"](2);
 
-                if (!(_context.t0.message === _constants__WEBPACK_IMPORTED_MODULE_10__.JSON_AUTH_SERVER_ERROR_MESSAGE.EMAIL_ALREADY_EXISTS)) {
+                if (!(_context.t0.message === _constants__WEBPACK_IMPORTED_MODULE_13__.JSON_AUTH_SERVER_ERROR_MESSAGE.EMAIL_ALREADY_EXISTS)) {
                   _context.next = 13;
                   break;
                 }
 
-                alert(_constants__WEBPACK_IMPORTED_MODULE_10__.ERROR_MESSAGE.AUTH.EMAIL_ALREADY_EXISTS);
+                alert(_constants__WEBPACK_IMPORTED_MODULE_13__.ERROR_MESSAGE.AUTH.EMAIL_ALREADY_EXISTS);
                 return _context.abrupt("return");
 
               case 13:
@@ -749,7 +750,7 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
   }, {
     key: "setEvent",
     value: function setEvent() {
-      (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.signup-form').addEventListener('submit', this.handleSignupFormSubmit);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.signup-form').addEventListener('submit', this.handleSignupFormSubmit);
     }
   }, {
     key: "registerAdministrator",
@@ -761,9 +762,9 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 userName = $name.value.trim();
-                (0,_validators__WEBPACK_IMPORTED_MODULE_13__.checkSignupValidation)(userName, $password.value, $passwordConfirm.value);
+                (0,_validators__WEBPACK_IMPORTED_MODULE_12__.checkSignupValidation)(userName, $password.value, $passwordConfirm.value);
                 _context2.next = 4;
-                return (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_11__.signup)($email.value, userName, $password.value);
+                return (0,_domains_Auth__WEBPACK_IMPORTED_MODULE_9__.signup)($email.value, userName, $password.value);
 
               case 4:
                 this.initSignupInputs($email, $name, $password, $passwordConfirm);
@@ -794,7 +795,7 @@ var Signup = /*#__PURE__*/function (_CustomElement) {
   }]);
 
   return Signup;
-}(_abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_9__["default"]);
+}(_abstracts_CustomElement__WEBPACK_IMPORTED_MODULE_10__["default"]);
 
 customElements.define('sign-up', Signup);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Signup);
@@ -1428,9 +1429,7 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
       _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_8__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_9__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_9__.PRODUCT_ACTION.DELETE, productName));
     });
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleProductModifyEnter", function (event, $tbodyRow) {
-      if (event.key !== 'Enter') return;
-
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleProductModifyConfirmButtonClick", function ($tbodyRow) {
       try {
         _this.modifyProduct($tbodyRow);
       } catch (error) {
@@ -1438,7 +1437,9 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
       }
     });
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleProductModifyConfirmButtonClick", function ($tbodyRow) {
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleProductModifyEnter", function (event, $tbodyRow) {
+      if (event.key !== 'Enter') return;
+
       try {
         _this.modifyProduct($tbodyRow);
       } catch (error) {
@@ -1463,6 +1464,57 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
     } // eslint-disable-next-line max-lines-per-function
 
   }, {
+    key: "setEvent",
+    value: function setEvent() {
+      var _this2 = this;
+
+      var $productCurrentSituation = (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-current-situation tbody');
+      $productCurrentSituation.addEventListener('click', function (event) {
+        var classList = event.target.classList;
+        var $tbodyRow = event.target.closest('tr');
+
+        if (classList.contains('table__product-modify-button')) {
+          _this2.handleProductModifyButtonClick($tbodyRow);
+
+          return;
+        }
+
+        if (classList.contains('table__product-delete-button')) {
+          _this2.handleProductDeleteButtonClick($tbodyRow.dataset);
+
+          return;
+        }
+
+        if (classList.contains('table__product-modify-confirm-button')) {
+          _this2.handleProductModifyConfirmButtonClick($tbodyRow);
+        }
+      });
+      $productCurrentSituation.addEventListener('keydown', function (event) {
+        _this2.handleProductModifyEnter(event, event.target.closest('tr'));
+      });
+    }
+  }, {
+    key: "modifyProduct",
+    value: function modifyProduct($tbodyRow) {
+      var oldProductName = $tbodyRow.dataset.productName;
+      var newProductInfo = {
+        name: (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-name-input', $tbodyRow).value,
+        price: (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-price-input', $tbodyRow).valueAsNumber,
+        quantity: (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-quantity-input', $tbodyRow).valueAsNumber
+      };
+
+      if (oldProductName !== newProductInfo.name) {
+        (0,_validators__WEBPACK_IMPORTED_MODULE_12__.checkDuplicateProductWhenModify)(newProductInfo);
+      }
+
+      (0,_validators__WEBPACK_IMPORTED_MODULE_12__.checkProductValidation)(newProductInfo);
+      _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_8__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_9__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_9__.PRODUCT_ACTION.MODIFY, {
+        oldProductName: oldProductName,
+        newProductInfo: newProductInfo
+      }));
+    } // eslint-disable-next-line max-lines-per-function
+
+  }, {
     key: "rerender",
     value: function rerender(_ref2) {
       var type = _ref2.type,
@@ -1471,7 +1523,7 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
       switch (type) {
         case _domains_actions__WEBPACK_IMPORTED_MODULE_9__.PRODUCT_ACTION.ADD:
           (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('tbody', (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-current-situation')).insertAdjacentHTML('beforeend', this.tableBodyRowTemplate(detail));
-          this.setEventAfterProductAddRerender(detail);
+          (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)("[data-product-name=\"".concat(detail.name, "\"]")).scrollIntoView();
           break;
 
         case _domains_actions__WEBPACK_IMPORTED_MODULE_9__.PRODUCT_ACTION.MODIFY:
@@ -1513,49 +1565,6 @@ var ProductCurrentSituation = /*#__PURE__*/function (_CustomElement) {
           price = _ref3.price,
           quantity = _ref3.quantity;
       return " \n      <tr data-product-name=\"".concat(name, "\">\n        <td class=\"product-td product-name-td\">").concat(name, "</td>\n        <td class=\"product-modify-td product-name-td hidden\">\n          <input class=\"product-name-input\" placeholder=\"\uC0C1\uD488\uBA85\" value=\"").concat(name, "\" maxlength=\"10\" required>\n        </td>\n\n        <td class=\"product-td product-price-td\">").concat(price, "</td>\n        <td class=\"product-modify-td product-price-td hidden\">\n          <input type=\"number\" class=\"product-price-input\" placeholder=\"\uAC00\uACA9\" value=\"").concat(price, "\" min=\"100\" max=\"10000\" step=\"10\" required>\n        </td>\n      \n        <td class=\"product-td product-quantity-td\">").concat(quantity, "</td>\n        <td class=\"product-modify-td product-quantity-td hidden\">\n          <input type=\"number\" class=\"product-quantity-input\" placeholder=\"\uC218\uB7C9\" value=\"").concat(quantity, "\" min=\"1\" max=\"20\" required>\n        </td>\n\n        <td class=\"product-td product-manage-buttons-td\">\n          <button class=\"table__product-modify-button\">\uC218\uC815</button>\n          <button class=\"table__product-delete-button\">\uC0AD\uC81C</button>\n        </td>\n        <td class=\"product-modify-td product-manage-buttons-td hidden\">\n          <button class=\"table__product-modify-confirm-button\">\uD655\uC778</button>\n        </td>\n      </tr>\n    ");
-    }
-  }, {
-    key: "setEventAfterProductAddRerender",
-    value: function setEventAfterProductAddRerender(_ref4) {
-      var _this2 = this;
-
-      var name = _ref4.name;
-      var $tbodyRow = (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)("[data-product-name=\"".concat(name, "\"]"));
-      $tbodyRow.scrollIntoView();
-      (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.table__product-modify-button', $tbodyRow).addEventListener('click', function () {
-        return _this2.handleProductModifyButtonClick($tbodyRow);
-      });
-      (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.table__product-delete-button', $tbodyRow).addEventListener('click', function () {
-        _this2.handleProductDeleteButtonClick($tbodyRow.dataset);
-      });
-      (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$$)('.product-modify-td input', $tbodyRow).forEach(function (input) {
-        return input.addEventListener('keydown', function (event) {
-          return _this2.handleProductModifyEnter(event, $tbodyRow);
-        });
-      });
-      (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-modify-td .table__product-modify-confirm-button', $tbodyRow).addEventListener('click', function () {
-        return _this2.handleProductModifyConfirmButtonClick($tbodyRow);
-      });
-    }
-  }, {
-    key: "modifyProduct",
-    value: function modifyProduct($tbodyRow) {
-      var oldProductName = $tbodyRow.dataset.productName;
-      var newProductInfo = {
-        name: (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-name-input', $tbodyRow).value,
-        price: (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-price-input', $tbodyRow).valueAsNumber,
-        quantity: (0,_utils__WEBPACK_IMPORTED_MODULE_11__.$)('.product-quantity-input', $tbodyRow).valueAsNumber
-      };
-
-      if (oldProductName !== newProductInfo.name) {
-        (0,_validators__WEBPACK_IMPORTED_MODULE_12__.checkDuplicateProductWhenModify)(newProductInfo);
-      }
-
-      (0,_validators__WEBPACK_IMPORTED_MODULE_12__.checkProductValidation)(newProductInfo);
-      _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_8__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_9__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_9__.PRODUCT_ACTION.MODIFY, {
-        oldProductName: oldProductName,
-        newProductInfo: newProductInfo
-      }));
     }
   }]);
 
@@ -2027,6 +2036,27 @@ var PurchasableProductCurrentSituation = /*#__PURE__*/function (_CustomElement) 
     key: "template",
     value: function template() {
       return "\n      <h2>\uAD6C\uB9E4 \uAC00\uB2A5 \uC0C1\uD488 \uD604\uD669</h2>\n      <div class=\"purchasable-product-current-situation-container\">\n        <table class=\"purchasable-product-current-situation\">\n          <thead>\n            <tr>\n              <th>\uC0C1\uD488\uBA85</th>\n              <th>\uAC00\uACA9</th>\n              <th>\uC218\uB7C9</th>\n              <th>\uAD6C\uB9E4</th>\n            </tr>\n          </thead>\n          <tbody></tbody>\n        </table>\n      </div>\n    ";
+    }
+  }, {
+    key: "setEvent",
+    value: function setEvent() {
+      var _this2 = this;
+
+      (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.purchasable-product-current-situation tbody').addEventListener('click', function (event) {
+        if (event.target.classList.contains('table__product-purchase-button')) {
+          _this2.handleProductPurchaseButtonClick(event.target.closest('tr'));
+        }
+      });
+    }
+  }, {
+    key: "purchaseProduct",
+    value: function purchaseProduct($tbodyRow) {
+      var productName = $tbodyRow.dataset.purchasableProductName;
+      var productPrice = Number((0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.purchasable-product-price-td', $tbodyRow).textContent);
+      var productQuantity = Number((0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.purchasable-product-quantity-td', $tbodyRow).textContent);
+      (0,_validators__WEBPACK_IMPORTED_MODULE_13__.checkProductPurchaseValidation)(productPrice, productQuantity);
+      _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_8__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_10__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_10__.PRODUCT_ACTION.PURCHASE, productName));
+      _domains_stores_CoinStore__WEBPACK_IMPORTED_MODULE_9__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_10__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_10__.PRODUCT_ACTION.PURCHASE, productPrice));
     } // eslint-disable-next-line max-lines-per-function
 
   }, {
@@ -2038,7 +2068,6 @@ var PurchasableProductCurrentSituation = /*#__PURE__*/function (_CustomElement) 
       switch (type) {
         case _domains_actions__WEBPACK_IMPORTED_MODULE_10__.PRODUCT_ACTION.ADD:
           (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('tbody', (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.purchasable-product-current-situation')).insertAdjacentHTML('beforeend', this.tableBodyRowTemplate(detail));
-          this.setEventAfterProductAddRerender(detail);
           break;
 
         case _domains_actions__WEBPACK_IMPORTED_MODULE_10__.PRODUCT_ACTION.MODIFY:
@@ -2073,27 +2102,6 @@ var PurchasableProductCurrentSituation = /*#__PURE__*/function (_CustomElement) 
           price = _ref2.price,
           quantity = _ref2.quantity;
       return " \n      <tr data-purchasable-product-name=\"".concat(name, "\">\n        <td class=\"purchasable-product-name-td\">").concat(name, "</td>\n        <td class=\"purchasable-product-price-td\">").concat(price, "</td>\n        <td class=\"purchasable-product-quantity-td\">").concat(quantity, "</td>\n        <td>\n          <button class=\"table__product-purchase-button\">\uAD6C\uB9E4</button>\n        </td>\n      </tr>\n    ");
-    }
-  }, {
-    key: "setEventAfterProductAddRerender",
-    value: function setEventAfterProductAddRerender(_ref3) {
-      var _this2 = this;
-
-      var name = _ref3.name;
-      var $tbodyRow = (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)("[data-purchasable-product-name=\"".concat(name, "\"]"));
-      (0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.table__product-purchase-button', $tbodyRow).addEventListener('click', function () {
-        return _this2.handleProductPurchaseButtonClick($tbodyRow);
-      });
-    }
-  }, {
-    key: "purchaseProduct",
-    value: function purchaseProduct($tbodyRow) {
-      var productName = $tbodyRow.dataset.purchasableProductName;
-      var productPrice = Number((0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.purchasable-product-price-td', $tbodyRow).textContent);
-      var productQuantity = Number((0,_utils__WEBPACK_IMPORTED_MODULE_12__.$)('.purchasable-product-quantity-td', $tbodyRow).textContent);
-      (0,_validators__WEBPACK_IMPORTED_MODULE_13__.checkProductPurchaseValidation)(productPrice, productQuantity);
-      _domains_stores_ProductStore__WEBPACK_IMPORTED_MODULE_8__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_10__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_10__.PRODUCT_ACTION.PURCHASE, productName));
-      _domains_stores_CoinStore__WEBPACK_IMPORTED_MODULE_9__["default"].instance.dispatch((0,_domains_actions__WEBPACK_IMPORTED_MODULE_10__.createAction)(_domains_actions__WEBPACK_IMPORTED_MODULE_10__.PRODUCT_ACTION.PURCHASE, productPrice));
     }
   }]);
 
@@ -2189,6 +2197,8 @@ customElements.define('vending-machine', VendingMachine);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/utils.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
+/* harmony import */ var _domains_Auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./domains/Auth */ "./src/domains/Auth.ts");
+
 
 
 var targets = [{
@@ -2204,16 +2214,19 @@ var targets = [{
 }, {
   hash: '#!user-info-modify',
   header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.USER_INFO_MODIFY,
+  authorization: 'administrator',
   $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('user-info-modify')
 }, {
   hash: '#!product-manage',
   header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.VENDING_MACHINE,
+  authorization: 'administrator',
   $button: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__product-manage-button'),
   $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('product-manage-container'),
   $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.product-name-input')
 }, {
   hash: '#!coin-charge',
   header: _constants__WEBPACK_IMPORTED_MODULE_1__.HEADER.VENDING_MACHINE,
+  authorization: 'administrator',
   $button: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('.nav__coin-charge-button'),
   $container: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('coin-charge-container'),
   $focusInput: (0,_utils__WEBPACK_IMPORTED_MODULE_0__.$)('#machine-money-input')
@@ -2244,6 +2257,12 @@ var renderApp = function renderApp(currentTarget) {
 
 var renderTargets = function renderTargets(currentTarget, prevTarget) {
   var _currentTarget$$butto, _currentTarget$$focus, _prevTarget$$button;
+
+  if (currentTarget.authorization && !(0,_domains_Auth__WEBPACK_IMPORTED_MODULE_2__.isLoggedIn)()) {
+    alert(_constants__WEBPACK_IMPORTED_MODULE_1__.ERROR_MESSAGE.AUTH.CANNOT_ACCESS);
+    window.history.back();
+    return;
+  }
 
   (_currentTarget$$butto = currentTarget.$button) === null || _currentTarget$$butto === void 0 ? void 0 : _currentTarget$$butto.classList.add('clicked');
   (0,_utils__WEBPACK_IMPORTED_MODULE_0__.showElement)(currentTarget.$container);
@@ -4206,8 +4225,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./src/domains/actions.ts");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
 var __classPrivateFieldGet = (undefined && undefined.__classPrivateFieldGet) || function (receiver, state, kind, f) {
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
@@ -4226,21 +4245,21 @@ var _CoinStore_machine, _CoinStore_customer, _CoinStore_machineSubscribers, _Coi
 class CoinStore {
     constructor() {
         _CoinStore_machine.set(this, {
-            money: _constants__WEBPACK_IMPORTED_MODULE_1__.MONEY.DEFAULT,
+            money: _constants__WEBPACK_IMPORTED_MODULE_2__.MONEY.DEFAULT,
             coinsCount: {
-                500: _constants__WEBPACK_IMPORTED_MODULE_1__.COIN.DEFAULT_COUNT,
-                100: _constants__WEBPACK_IMPORTED_MODULE_1__.COIN.DEFAULT_COUNT,
-                50: _constants__WEBPACK_IMPORTED_MODULE_1__.COIN.DEFAULT_COUNT,
-                10: _constants__WEBPACK_IMPORTED_MODULE_1__.COIN.DEFAULT_COUNT,
+                500: _constants__WEBPACK_IMPORTED_MODULE_2__.COIN.DEFAULT_COUNT,
+                100: _constants__WEBPACK_IMPORTED_MODULE_2__.COIN.DEFAULT_COUNT,
+                50: _constants__WEBPACK_IMPORTED_MODULE_2__.COIN.DEFAULT_COUNT,
+                10: _constants__WEBPACK_IMPORTED_MODULE_2__.COIN.DEFAULT_COUNT,
             },
         });
         _CoinStore_customer.set(this, {
-            money: _constants__WEBPACK_IMPORTED_MODULE_1__.MONEY.DEFAULT,
+            money: _constants__WEBPACK_IMPORTED_MODULE_2__.MONEY.DEFAULT,
             coinsCount: {
-                500: _constants__WEBPACK_IMPORTED_MODULE_1__.COIN.DEFAULT_COUNT,
-                100: _constants__WEBPACK_IMPORTED_MODULE_1__.COIN.DEFAULT_COUNT,
-                50: _constants__WEBPACK_IMPORTED_MODULE_1__.COIN.DEFAULT_COUNT,
-                10: _constants__WEBPACK_IMPORTED_MODULE_1__.COIN.DEFAULT_COUNT,
+                500: _constants__WEBPACK_IMPORTED_MODULE_2__.COIN.DEFAULT_COUNT,
+                100: _constants__WEBPACK_IMPORTED_MODULE_2__.COIN.DEFAULT_COUNT,
+                50: _constants__WEBPACK_IMPORTED_MODULE_2__.COIN.DEFAULT_COUNT,
+                10: _constants__WEBPACK_IMPORTED_MODULE_2__.COIN.DEFAULT_COUNT,
             },
         });
         _CoinStore_machineSubscribers.set(this, []);
@@ -4289,7 +4308,7 @@ class CoinStore {
         let coinList = this.generateCoinList();
         let money = detail;
         while (money) {
-            const randomCoin = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.pickNumberInList)(coinList);
+            const randomCoin = (0,_utils__WEBPACK_IMPORTED_MODULE_1__.pickNumberInList)(coinList);
             if (money < randomCoin) {
                 coinList = this.generateNewCoinList(coinList, money);
                 continue;
